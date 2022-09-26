@@ -1,6 +1,6 @@
 # Есть возможность прогонять тесты через Chrome или Firefox указав их в командной строке терминала
-# pytest -s -v --browser_name=chrome  --language=en test_parser.py    - для Chrome (по умолчанию)
-# pytest -s -v --browser_name=firefox --language=en test_parser.py    - для Firefox
+# pytest -s -v --browser_name=chrome  --language=ru test_parser.py    - для Chrome (по умолчанию)
+# pytest -s -v --browser_name=firefox --language=ru test_parser.py    - для Firefox
 
 import pytest
 from selenium import webdriver
@@ -12,7 +12,7 @@ def pytest_addoption(parser):  # добавляет опции в командн
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose browser: chrome or firefox")
     # добавляем возможность в командной строке вводить: --language=(любой язык, например en)
-    parser.addoption('--language', action='store', default=None,
+    parser.addoption('--language', action='store', default="ru",
                      help="Choose language: ru, en, de, fr")
 
 

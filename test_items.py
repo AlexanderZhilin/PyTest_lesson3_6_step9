@@ -7,16 +7,10 @@ link = " http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 
 def test_add_to_cart_button(browser):
-    browser.implicitly_wait(5)
+    browser.implicitly_wait(10)
     browser.get(link)
-    # time.sleep(5)
-    try:
-        WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".btn-add-to-basketp")))
-        found = True
-    except:
-        found = False
-
-    assert found, "add to cart button not found"
+    # time.sleep(30)
+    assert WebDriverWait(browser, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".btn-add-to-basket")), "---!!! ADD TO CART BUTTON NOT FOUND !!!---")
 
 # if __name__ == "__main__":
 #     pytest.main(['-s', '-v', '--browser_name=firefox', '--language=en', 'test_parser.py'])
